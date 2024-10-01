@@ -1,0 +1,29 @@
+# Node.js dependencies
+node_modules/
+
+# Docker-related files
+Dockerfile
+docker-compose.yml
+
+# Uploaded files
+uploads/
+
+# Log files
+logs/
+*.log
+
+# Environment files
+.env
+
+# Editor files
+.vscode/
+.idea/
+
+# macOS files
+.DS_Store
+
+# Other generated files
+*.csv
+*.zip
+*.tar.gz
+

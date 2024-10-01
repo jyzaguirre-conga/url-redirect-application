@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Link Redirect App</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Link Redirect App</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Incoming URL</th>
+          <th>Outgoing URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% redirects.forEach(function(redirect) { %>
+          <tr>
+            <td><%= redirect.incomingUrl %></td>
+            <td><%= redirect.outgoingUrl %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <a href="/generate" class="btn btn-primary">Generate Incoming Link</a>
+    <a href="/export" class="btn btn-secondary">Export CSV</a>
+    <hr>
+    <h2>Import CSV</h2>
+    <form action="/import" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="csvFile">Select CSV File:</label>
+        <input type="file" class="form-control-file" id="csvFile" name="csvFile" accept=".csv" required>
+      </div>
+      <button type="submit" class="btn btn-primary" onclick="return confirm('Are you sure you want to make mass changes?')">Import</button>
+    </form>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
